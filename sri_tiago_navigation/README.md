@@ -1,11 +1,11 @@
-# README Navigation
+# README SRI_TIAGO_NAVIGATION
 
 ## Première étape : launch mapping simulation
 
 Commande pour lancer le mapping dans la salle groix de l'aip
 
 ```code
-roslaunch navigation aip_tiago_mapping.launch
+roslaunch sri_tiago_navigation aip_tiago_mapping.launch
 ```
 
 (Ce fichier a été construit à partir des fichiers launch déjà fournis exploitant la map de l'aip, en y ajoutant l'appel à rviz ainsi qu'à navigation et definitions de variables (mapping notamment))
@@ -46,3 +46,19 @@ geometry_msgs/Pose pose
 ```theta``` n'a pas d'influence sur l'orientation demandée, le quaternion transmis vaut (0,0,0,1), ```z``` vaut ```0```. ```seq```, ```stamp``` sont gérés automatiquement, ```frame_id``` vaut ```"map"```.
 
 [Lien démo](https://www.youtube.com/watch?v=SU8ofjLCdqI)
+
+## PMB2 Navigation repère monde
+
+Après avoir source le package ``sri_tiago_navigation``:
+
+Vous pouvez lancer RVIZ et le serveur de naviguation via la commande suivante:
+```bash
+roslaunch sri_tiago_navigation pmb2_navigation_MFJA.launch
+```
+
+Et lancer une commande de naviguation par le client:
+```bash
+rosrun sri_tiago_navigation client_move_to_goal.py <location_name>
+```
+
+(locations: ``milieu``, ``milieu-test``)
